@@ -1,8 +1,8 @@
+import { writeFile } from "fs/promises";
 import { ConnectDB } from "@/lib/config/db";
 import blog from "@/lib/models/blogModel";
-import { writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
-import fs from 'fs';
+const fs = require('fs')
 
 const loadDB = async () => {
   await ConnectDB();
