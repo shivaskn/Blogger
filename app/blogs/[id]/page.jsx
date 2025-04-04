@@ -10,7 +10,7 @@ import axios from "axios";
 
 const Page = () => {
   const params = useParams();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   const fetchBlogData = async () => {
     const response = await axios.get("/api/blog", {
