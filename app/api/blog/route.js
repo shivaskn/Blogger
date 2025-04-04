@@ -2,6 +2,7 @@ import { ConnectDB } from "@/lib/config/db";
 import blog from "@/lib/models/blogModel";
 import { writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
+import fs from 'fs';
 
 const loadDB = async () => {
   await ConnectDB();
@@ -63,6 +64,28 @@ export async function GET(request) {
         blogs,
       });
     }
+  } catch (error) {
+    return NextResponse.json({
+      success: false,
+      message: error.message,
+    });
+  }
+}
+
+
+// API for delete blog
+
+export async function DELETE(request){
+  try {
+    const id = await request.nextUrl.searchParams.get('id');
+    const blogs = await blog.findById(id);
+    fs.unlink(`./public${blogs.image}`,()=> {});
+    await blog.findByIdAndDelete(id);
+    return NextResponse.json({
+      success:true,
+      message:'Blog has been deleted'
+    })
+
   } catch (error) {
     return NextResponse.json({
       success: false,
