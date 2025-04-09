@@ -1,12 +1,45 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/Assets/assets";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Blogitem = ({ title, description, category, image, id }) => {
+  const handleclick = () => {
+    toast.info(
+      "The image is not displaying in production because the files are stored locally on the disk.",
+      {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      }
+    );
+
+    setTimeout(() => {
+      toast.warn("We'll be back soon after resolving the issues 🙂", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }, 5000);
+  };
+
   return (
     <div className="max-w-[330px] sm:max-w-[400px] bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]">
-      <Link href={`/blogs/${id}`}>
+      {/* href={`/blogs/${id}`} */}
+      <Link href="" onClick={handleclick}>
         <Image
           src={image}
           alt=""
