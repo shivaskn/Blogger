@@ -18,7 +18,7 @@ const Header = () => {
       // const formData = new FormData();
       // formData.append("email", email);
 
-      const response = await axios.post("http://localhost:8000/api/email/subscribe", {email});
+      const response = await axios.post("https://blogger-backend-k1gt.onrender.com/api/email/subscribe", {email});
       if (response.data.success) {
         toast.success(response.data.message);
         setEmail("");

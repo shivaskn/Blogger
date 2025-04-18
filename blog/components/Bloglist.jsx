@@ -16,7 +16,7 @@ const Bloglist = () => {
   
 
   const fetchBlogs = async () => {
-    const response = await axios.get(`http://localhost:8000/api/blog/all`);
+    const response = await axios.get(`https://blogger-backend-k1gt.onrender.com/api/blog/all`);
     console.log("Fetched blog response:", response.data); 
     if (response.data.success) {
       setBlogs(response.data.blogs);

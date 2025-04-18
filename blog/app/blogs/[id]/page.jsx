@@ -13,7 +13,7 @@ const Page = () => {
   const [data, setData] = useState(null);
 
   const fetchBlogData = async () => {
-    const response = await axios.get(`http://localhost:8000/api/blog/blogitem/${id}`)
+    const response = await axios.get(`https://blogger-backend-k1gt.onrender.com/api/blog/blogitem/${id}`)
     if(response.data){
        setData(response.data);
     }

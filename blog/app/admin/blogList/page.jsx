@@ -12,7 +12,7 @@ const page = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/blog/all");
+      const response = await axios.get("https://blogger-backend-k1gt.onrender.com/api/blog/all");
       setBlogs(response.data.blogs);
     } catch (error) {
       toast.error(error.message);
@@ -21,7 +21,7 @@ const page = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/api/blog/delete/${id}`)
+      const response = await axios.delete(`https://blogger-backend-k1gt.onrender.com/api/blog/delete/${id}`)
       toast.success(response.data.message)
       fetchBlogs();
     } catch (error) {

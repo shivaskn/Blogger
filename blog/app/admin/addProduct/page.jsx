@@ -33,7 +33,7 @@ const page = () => {
     formData.append("authorImg", authorImage);
     formData.append("image", image);
 
-    const response = await axios.post("http://localhost:8000/api/blog/add", formData);
+    const response = await axios.post("https://blogger-backend-k1gt.onrender.com/api/blog/add", formData);
     if (response.data.success) {
       toast.success(response.data.message);
       setData({

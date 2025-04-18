@@ -11,12 +11,12 @@ const page = () => {
 
   
   const fetchEmails = async ()=> {
-     const response = await axios.get('http://localhost:8000/api/email/all');
+     const response = await axios.get('https://blogger-backend-k1gt.onrender.com/api/email/all');
      setEmail(response.data.email);
   }
 
   const deleteEmail = async (id)=> {
-    const response = await axios.delete(`http://localhost:8000/api/email/delete/${id}`)
+    const response = await axios.delete(`https://blogger-backend-k1gt.onrender.com/api/email/delete/${id}`)
 
     if(response.data.success){
       toast.success(response.data.message)
